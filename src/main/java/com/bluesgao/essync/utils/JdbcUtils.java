@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 1，获取连接
@@ -21,23 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Data
 @Slf4j
 public class JdbcUtils {
-
-    //jdbcUrl->dataSource
-    private static Map<String, DataSource> dataSourceMap = null;
-
-    static {
-        dataSourceMap = new ConcurrentHashMap<String, DataSource>();
-        //获取datasorce config，循环创建datasource
-        /*List<DataSourceConfig> configs = getDataSourceConifgs();
-        for (DataSourceConfig config : configs) {
-            String key = "";
-            DataSource dataSource = createDataSource(null);
-            if (dataSource != null && !dataSourceMap.containsKey(key)) {
-                dataSourceMap.put(key, dataSource);
-            }
-        }*/
-    }
-
     /**
      * 功能描述:创建数据源
      *
@@ -66,7 +48,7 @@ public class JdbcUtils {
      * @Auther: gaoxin11
      * @Date: 2018/6/21 14:22
      **/
-    public static Connection getConnection(String key) {
+    public static Connection getConnection(String key, Map<String, DataSource> dataSourceMap) {
         log.info("获取数据库连接");
         if (!dataSourceMap.containsKey(key)) {
             return null;
