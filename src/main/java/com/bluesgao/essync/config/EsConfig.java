@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class EsConfig {
     private String clusterName;//es集群名称
-    private String address;//es cluster ip地址
+    private String address;//datasource cluster ip地址
     private String user;//es用户名称
     private String passWord;//es密码
 }

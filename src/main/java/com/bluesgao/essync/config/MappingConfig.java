@@ -11,7 +11,7 @@ import java.util.HashMap;
 @Getter
 @Setter
 public class MappingConfig {
-    //jdbc column->es doc field
-    // es doc field-> es doc field
+    //jdbc column->datasource doc field
+    // datasource doc field-> datasource doc field
     private HashMap<String, String> fieldMappingMap;
 }

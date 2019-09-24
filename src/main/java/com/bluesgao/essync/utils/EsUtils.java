@@ -6,7 +6,7 @@ import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 
 /**
- * es 工具类
+ * datasource 工具类
  * 1，get client
  * 2，bulk save
  * 3，scroll query
